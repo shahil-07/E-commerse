@@ -109,6 +109,7 @@ function AdminProducts() {
             setUplodedImageUrl={setUplodedImageUrl}
             setImageLoadingState={setImageLoadingState}
             imageLoadingState={imageLoadingState}
+            // isEditMode={currentEditedId !== null}
             isEditMode={currentEditedId !== null}
           />
           <div className="py-6">
