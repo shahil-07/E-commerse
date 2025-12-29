@@ -10,15 +10,21 @@ function ProductImageUpload({
   imageFile,
   setImageFile,
   imageLoadingState,
-  uplodedImageUrl,
+  uploadedImageUrl,
   setUploadedImageUrl,
   setImageLoadingState,
   isEditMode,
+  isCustomStyling = false,
 }) {
   const inputRef = useRef(null);
 
-  function handelImageFileChnange(event) {
+  console.log(isEditMode, "isEditMode");
+
+  function handleImageFileChange(event) {
+    console.log(event.target.files, "event.target.files");
     const selectedFile = event.target.files?.[0];
+    console.log(selectedFile);
+
     if (selectedFile) setImageFile(selectedFile);
   }
 
@@ -60,8 +66,10 @@ function ProductImageUpload({
   }, [imageFile]);
 
   return (
-    <div className="w-full max-w-md mx-auto mt-4">
-      <Label className="text-lg font-semibold mb-2 block">Upload image</Label>
+    <div
+      className={`w-full  mt-4 ${isCustomStyling ? "" : "max-w-md mx-auto"}`}
+    >
+      <Label className="text-lg font-semibold mb-2 block">Upload Image</Label>
       <div
         onDragOver={handleDragOver}
         onDrop={handleDrop}
@@ -74,7 +82,7 @@ function ProductImageUpload({
           type="file"
           className="hidden"
           ref={inputRef}
-          onChange={handelImageFileChnange}
+          onChange={handleImageFileChange}
           disabled={isEditMode}
         />
         {!imageFile ? (
@@ -84,14 +92,13 @@ function ProductImageUpload({
               isEditMode ? "cursor-not-allowed" : ""
             } flex flex-col items-center justify-center h-32 cursor-pointer`}
           >
-            {" "}
             <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
-            <span>Drag & Drop or click to upload image</span>
+            <span>Drag & drop or click to upload image</span>
           </Label>
         ) : imageLoadingState ? (
           <Skeleton className="h-10 bg-gray-100" />
         ) : (
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-between">
             <div className="flex items-center">
               <FileIcon className="w-8 text-primary mr-2 h-8" />
             </div>
@@ -103,7 +110,7 @@ function ProductImageUpload({
               onClick={handleRemoveImage}
             >
               <XIcon className="w-4 h-4" />
-              <span className="sr-only">Remove Files</span>
+              <span className="sr-only">Remove File</span>
             </Button>
           </div>
         )}

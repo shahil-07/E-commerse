@@ -2,7 +2,7 @@ import {
   BadgeCheck,
   ChartNoAxesCombined,
   LayoutDashboard,
-  ShoppingCart,
+  ShoppingBasket,
 } from "lucide-react";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,7 @@ const adminSidebarMenuItems = [
     id: "products",
     label: "Products",
     path: "/admin/products",
-    icon: <ShoppingCart />,
+    icon: <ShoppingBasket />,
   },
   {
     id: "orders",
@@ -29,7 +29,7 @@ const adminSidebarMenuItems = [
   },
 ];
 
-function MenuItems({setOpen}) {
+function MenuItems({ setOpen }) {
   const navigate = useNavigate();
 
   return (
@@ -75,7 +75,7 @@ function AdminSideBar({ open, setOpen }) {
           className="flex cursor-pointer items-center gap-2"
         >
           <ChartNoAxesCombined size={30} />
-          <h1 className="text-2xl font-extrabold">Admin pannel</h1>
+          <h1 className="text-2xl font-extrabold">Admin Panel</h1>
         </div>
         <MenuItems />
       </aside>

@@ -1,4 +1,5 @@
-import ProductImageUpload from "@/components/admin-vew/image-upload";
+import ProductImageUpload from "@/components/admin-view/image-upload";
+import AdminProductTile from "@/components/admin-view/product-tile";
 import CommonForm from "@/components/common/form";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,6 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { useToast } from "@/components/ui/use-toast";
 import { addProductFormElements } from "@/config";
 import {
   addNewProduct,
@@ -14,8 +16,7 @@ import {
   editProduct,
   fetchAllProducts,
 } from "@/store/admin/products-slice";
-import { useToast } from "@/hooks/use-toast";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const initialFormData = {
@@ -27,6 +28,7 @@ const initialFormData = {
   price: "",
   salePrice: "",
   totalStock: "",
+  averageReview: 0,
 };
 
 function AdminProducts() {
@@ -34,7 +36,7 @@ function AdminProducts() {
     useState(false);
   const [formData, setFormData] = useState(initialFormData);
   const [imageFile, setImageFile] = useState(null);
-  const [uplodedImageUrl, setUplodedImageUrl] = useState("");
+  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
   const [imageLoadingState, setImageLoadingState] = useState(false);
   const [currentEditedId, setCurrentEditedId] = useState(null);
 
@@ -98,7 +100,7 @@ function AdminProducts() {
     dispatch(fetchAllProducts());
   }, [dispatch]);
 
-  console.log(productList, "productList");
+  console.log(formData, "productList");
 
   return (
     <Fragment>
@@ -137,8 +139,8 @@ function AdminProducts() {
           <ProductImageUpload
             imageFile={imageFile}
             setImageFile={setImageFile}
-            uplodedImageUrl={uplodedImageUrl}
-            setUplodedImageUrl={setUplodedImageUrl}
+            uploadedImageUrl={uploadedImageUrl}
+            setUploadedImageUrl={setUploadedImageUrl}
             setImageLoadingState={setImageLoadingState}
             imageLoadingState={imageLoadingState}
             isEditMode={currentEditedId !== null}
@@ -150,7 +152,7 @@ function AdminProducts() {
               setFormData={setFormData}
               buttonText={currentEditedId !== null ? "Edit" : "Add"}
               formControls={addProductFormElements}
-              isBtnDisabled={!isFormValid}
+              isBtnDisabled={!isFormValid()}
             />
           </div>
         </SheetContent>
