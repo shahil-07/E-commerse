@@ -58,11 +58,11 @@ export const addProductFormElements = [
     name: "category",
     componentType: "select",
     options: [
-      { id: "men", label: "Men" },
-      { id: "women", label: "Women" },
-      { id: "kids", label: "Kids" },
-      { id: "accessories", label: "Accessories" },
-      { id: "footwear", label: "Footwear" },
+      { id: "household", label: "Household" },
+      { id: "beauty", label: "Beauty" },
+      { id: "cosmetics", label: "Cosmetics" },
+      { id: "computer-accessories", label: "Computer Accessories" },
+      { id: "home-appliances", label: "Home Appliances" },
     ],
   },
   {
@@ -70,12 +70,12 @@ export const addProductFormElements = [
     name: "brand",
     componentType: "select",
     options: [
-      { id: "nike", label: "Nike" },
-      { id: "adidas", label: "Adidas" },
-      { id: "puma", label: "Puma" },
-      { id: "levi", label: "Levi's" },
-      { id: "zara", label: "Zara" },
-      { id: "h&m", label: "H&M" },
+      { id: "samsung", label: "Samsung" },
+      { id: "lg", label: "LG" },
+      { id: "philips", label: "Philips" },
+      { id: "dell", label: "Dell" },
+      { id: "hp", label: "HP" },
+      { id: "loreal", label: "L'Oreal" },
     ],
   },
   {
@@ -113,28 +113,28 @@ export const shoppingViewHeaderMenuItems = [
     path: "/shop/listing",
   },
   {
-    id: "men",
-    label: "Men",
+    id: "household",
+    label: "Household",
     path: "/shop/listing",
   },
   {
-    id: "women",
-    label: "Women",
+    id: "beauty",
+    label: "Beauty",
     path: "/shop/listing",
   },
   {
-    id: "kids",
-    label: "Kids",
+    id: "cosmetics",
+    label: "Cosmetics",
     path: "/shop/listing",
   },
   {
-    id: "footwear",
-    label: "Footwear",
+    id: "computer-accessories",
+    label: "Computer Accessories",
     path: "/shop/listing",
   },
   {
-    id: "accessories",
-    label: "Accessories",
+    id: "home-appliances",
+    label: "Home Appliances",
     path: "/shop/listing",
   },
   {
@@ -145,37 +145,37 @@ export const shoppingViewHeaderMenuItems = [
 ];
 
 export const categoryOptionsMap = {
-  men: "Men",
-  women: "Women",
-  kids: "Kids",
-  accessories: "Accessories",
-  footwear: "Footwear",
+  household: "Household",
+  beauty: "Beauty",
+  cosmetics: "Cosmetics",
+  "computer-accessories": "Computer Accessories",
+  "home-appliances": "Home Appliances",
 };
 
 export const brandOptionsMap = {
-  nike: "Nike",
-  adidas: "Adidas",
-  puma: "Puma",
-  levi: "Levi",
-  zara: "Zara",
-  "h&m": "H&M",
+  samsung: "Samsung",
+  lg: "LG",
+  philips: "Philips",
+  dell: "Dell",
+  hp: "HP",
+  loreal: "L'Oreal",
 };
 
 export const filterOptions = {
   category: [
-    { id: "men", label: "Men" },
-    { id: "women", label: "Women" },
-    { id: "kids", label: "Kids" },
-    { id: "accessories", label: "Accessories" },
-    { id: "footwear", label: "Footwear" },
+    { id: "household", label: "Household" },
+    { id: "beauty", label: "Beauty" },
+    { id: "cosmetics", label: "Cosmetics" },
+    { id: "computer-accessories", label: "Computer Accessories" },
+    { id: "home-appliances", label: "Home Appliances" },
   ],
   brand: [
-    { id: "nike", label: "Nike" },
-    { id: "adidas", label: "Adidas" },
-    { id: "puma", label: "Puma" },
-    { id: "levi", label: "Levi's" },
-    { id: "zara", label: "Zara" },
-    { id: "h&m", label: "H&M" },
+    { id: "samsung", label: "Samsung" },
+    { id: "lg", label: "LG" },
+    { id: "philips", label: "Philips" },
+    { id: "dell", label: "Dell" },
+    { id: "hp", label: "HP" },
+    { id: "loreal", label: "L'Oreal" },
   ],
 };
 
